@@ -124,9 +124,7 @@ function yarn:build:css {
   # Build CSS assets, this is meant to be run from within the assets container
   local args=()
 
-  if [ "${NODE_ENV:-}" == "production" ]; then
-    #args=(--minify)
-  else
+  if [ "${NODE_ENV:-}" == "development" ]; then
     args=(--watch)
   fi
 
