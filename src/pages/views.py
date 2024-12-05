@@ -14,11 +14,14 @@ def home(request):
 
     return render(request, "pages/home.html", context)
 
+
 def about(request):
     return render(request, "pages/about.html")
 
+
 def vocabulary(request):
     return render(request, "pages/vocabulary.html")
+
 
 def resources(request):
     return render(request, "pages/resources.html")

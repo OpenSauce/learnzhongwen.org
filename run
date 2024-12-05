@@ -125,7 +125,7 @@ function yarn:build:css {
   local args=()
 
   if [ "${NODE_ENV:-}" == "production" ]; then
-    args=(--minify)
+    #args=(--minify)
   else
     args=(--watch)
   fi
