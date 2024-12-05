@@ -329,7 +329,7 @@ Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Changed
 
-- Rename `src/hello/` directory to `src/config/` to be more portable
+- Rename `src/learnzhongwen/` directory to `src/config/` to be more portable
 - Replace `APP_NAME` in `run` script with `POSTGRES_USER` for connecting to psql
 - Avoid using multi-line imports with commas or parenthesis
 - Update Python from `3.9.2` to `3.9.5`

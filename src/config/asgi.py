@@ -1,5 +1,5 @@
 """
-ASGI config for hello project.
+ASGI config for learnzhongwen project.
 
 It exposes the ASGI callable as a module-level variable named `application`.
 

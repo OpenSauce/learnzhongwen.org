@@ -25,23 +25,53 @@
 
 <body class="flex flex-col h-screen justify-between">
   <div class="bg-gray-700">
-    <div class="max-w-screen-lg mx-auto py-3 px-3 sm:px-6 lg:px-8">
+    <div class="max-w-screen-lg mx-auto py-3 px-3 sm:px-6 lg:px-2">
       <div class="flex items-center justify-between flex-wrap">
-
-
+        <div class="flex items-center flex-shrink-0 text-white mr-6">
+          <span class="font-semibold text-xl tracking-tight">Learn Zhongwen</span>
+        </div>
+        <div class="block lg:hidden">
+          <button id="nav-toggle"
+            class="flex items-center px-3 py-2 border rounded text-white border-white hover:text-gray-400 hover:border-gray-400">
+            <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <title>Menu</title>
+              <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+            </svg>
+          </button>
+        </div>
+        <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block" id="nav-content">
+          <div class="text-sm lg:flex-grow">
+            <a href="/" class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-gray-400 px-4">Home</a>
+            <a href="/vocabulary"
+              class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-gray-400 px-4">Vocabulary</a>
+            <a href="/resources"
+              class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-gray-400 px-4">Resources</a>
+            <a href="/about" class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-gray-400 px-4">About</a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 
   <main class="max-w-screen-lg mx-auto mb-auto">
-    <img src="{% static 'images/l2.webp' %}" alt="Django and Docker" class="mx-auto mt-6">
-    <p class="text-center">红烧肉 they call it, 红烧肉.</p>
+    {% block body %}{% endblock %}
   </main>
 
   <footer class="text-center mt-6 pb-6 h-10">
     <p class="text-gray-500">
     </p>
   </footer>
+
+  <script>
+    document.getElementById('nav-toggle').onclick = function () {
+      var navContent = document.getElementById('nav-content');
+      if (navContent.classList.contains('hidden')) {
+        navContent.classList.remove('hidden');
+      } else {
+        navContent.classList.add('hidden');
+      }
+    };
+  </script>
 </body>
 
 </html>
