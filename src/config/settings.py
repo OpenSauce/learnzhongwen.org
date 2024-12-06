@@ -157,6 +157,9 @@ STATICFILES_DIRS = ["/public", os.path.join(BASE_DIR, "..", "public")]
 STATIC_ROOT = "/public_collected"
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
+# CSRF Trusted Origins
+CSRF_TRUSTED_ORIGINS = ["https://learnzhongwen.org", "https://www.learnzhongwen.org", http://learnzhongwen.org", "http://www.learnzhongwen.org"]
+
 # Django Debug Toolbar
 # https://django-debug-toolbar.readthedocs.io/
 if DEBUG:
@@ -168,3 +171,4 @@ if DEBUG:
         "127.0.0.1",
         "10.0.2.2",
     ]
+
