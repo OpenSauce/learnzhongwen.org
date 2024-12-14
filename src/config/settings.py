@@ -160,8 +160,8 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 # CSRF Trusted Origins
 CSRF_TRUSTED_ORIGINS = [
     "https://learnzhongwen.org",
-    "https://www.learnzhongwen.org", 
-    "http://learnzhongwen.org", 
+    "https://www.learnzhongwen.org",
+    "http://learnzhongwen.org",
     "http://www.learnzhongwen.org"
     ]
 
