@@ -1,8 +1,9 @@
-from django.urls import path
 from django.contrib.sitemaps.views import sitemap
-from .sitemaps import StaticViewSitemap
+from django.urls import path
 
 from pages import views
+
+from .sitemaps import StaticViewSitemap
 
 sitemaps = {
     "static": StaticViewSitemap,
