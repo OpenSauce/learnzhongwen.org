@@ -5,7 +5,7 @@ from .sitemaps import StaticViewSitemap
 from pages import views
 
 sitemaps = {
-    'static': StaticViewSitemap,
+    "static": StaticViewSitemap,
 }
 
 urlpatterns = [
@@ -13,5 +13,5 @@ urlpatterns = [
     path("about/", views.about, name="about"),
     path("vocabulary/", views.vocabulary, name="vocabulary"),
     path("resources/", views.resources, name="resources"),
-    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='sitemap'),
+    path("sitemap.xml", sitemap, {"sitemaps": sitemaps}, name="sitemap"),
 ]
