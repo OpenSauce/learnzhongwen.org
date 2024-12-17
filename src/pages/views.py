@@ -24,10 +24,12 @@ def about(request):
 def vocabulary(request):
     return render(request, "pages/vocabulary.html")
 
+
 def start(request):
     metric = Metric.objects.get_or_create(page="start")
     metric[0].increment()
     return render(request, "pages/resources.html")
+
 
 def resources(request):
     return render(request, "pages/resources.html")
