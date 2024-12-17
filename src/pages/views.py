@@ -4,6 +4,8 @@ from django import get_version
 from django.conf import settings
 from django.shortcuts import render
 
+from .models import Metric
+
 
 def home(request):
     context = {
@@ -22,6 +24,10 @@ def about(request):
 def vocabulary(request):
     return render(request, "pages/vocabulary.html")
 
+def start(request):
+    metric = Metric.objects.get_or_create(page="start")
+    metric[0].increment()
+    return render(request, "pages/resources.html")
 
 def resources(request):
     return render(request, "pages/resources.html")
