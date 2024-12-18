@@ -4,13 +4,15 @@
 {% block title %}LearnZhongWen{% endblock %}
 
 {% block body %}
-<main class="max-w-screen-lg my-5 mx-auto mb-auto">
-  <img src="{% static 'images/l2.webp' %}" alt="LearnZhongWen" class="mx-auto mt-6">
+<main class="max-w-screen-lg my-5 mx-auto mb-auto text-center">
   <div class="text-center">
-    <p>红烧肉 they call it, 红烧肉.</p>
-    <button
-      class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"><a
-        href="/start">Begin</a></button>
+    <p class="text-gray-600">红烧肉 they call it, 红烧肉.</p>
   </div>
+  <img src="{% static 'images/l2.webp' %}" class="mx-auto mt-6" width="75%" />
+
+  <button
+    class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow mt-6">
+    <a href="/start">Begin</a>
+  </button>
 </main>
 {% endblock %}

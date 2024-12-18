@@ -19,6 +19,12 @@ class HSK(models.Model):
         return self.character
 
 
+class Interest(models.Model):
+    id = models.AutoField(primary_key=True)
+    email = models.EmailField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+
 class Metric(models.Model):
     page = models.CharField(max_length=255)
     views = models.IntegerField(default=0)

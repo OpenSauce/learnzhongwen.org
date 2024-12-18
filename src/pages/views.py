@@ -1,20 +1,10 @@
-import os
-
-from django import get_version
-from django.conf import settings
 from django.shortcuts import render
 
-from .models import Metric
+from .models import Interest
 
 
 def home(request):
-    context = {
-        "debug": settings.DEBUG,
-        "django_ver": get_version(),
-        "python_ver": os.environ["PYTHON_VERSION"],
-    }
-
-    return render(request, "pages/home.html", context)
+    return render(request, "pages/home.html")
 
 
 def about(request):
@@ -26,10 +16,15 @@ def vocabulary(request):
 
 
 def start(request):
-    metric = Metric.objects.get_or_create(page="start")
-    metric[0].increment()
-    return render(request, "pages/resources.html")
+    return render(request, "pages/flashcards.html")
 
 
 def resources(request):
     return render(request, "pages/resources.html")
+
+
+def submit_email(request):
+    if request.method == "POST":
+        email = request.POST["email"]
+        Interest.objects.create(email=email)
+    return render(request, "pages/home.html")
