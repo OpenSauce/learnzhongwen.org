@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 
 class Post(models.Model):
@@ -19,10 +20,16 @@ class HSK(models.Model):
         return self.character
 
 
+class AutoDateTimeField(models.DateTimeField):
+    def pre_save(self, model_instance, add):
+        return timezone.now()
+
+
 class Interest(models.Model):
-    id = models.AutoField(primary_key=True)
     email = models.EmailField()
-    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.email
 
 
 class Metric(models.Model):
