@@ -30,15 +30,3 @@ class Interest(models.Model):
 
     def __str__(self):
         return self.email
-
-
-class Metric(models.Model):
-    page = models.CharField(max_length=255)
-    views = models.IntegerField(default=0)
-
-    def __str__(self):
-        return self.page
-
-    def increment(self):
-        self.views += 1
-        self.save()
