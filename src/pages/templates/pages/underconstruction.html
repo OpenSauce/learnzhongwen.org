@@ -1,0 +1,38 @@
+{% extends "layouts/index.html" %}
+{% load static %}
+
+{% block title %}Flashcards - LearnZhongWen{% endblock %}
+
+{% block body %}
+<main class="max-w-screen-lg mx-auto p-6 bg-white rounded-lg">
+    <p class="text-gray-600">This page is still under construction. But don't worry! Things will be here soon.</p>
+    <img src="{% static 'images/under-construction.webp' %}" alt="Under construction" class="mx-auto mt-6"
+        style="width: 50%;" />
+    <div class="mt-4 font-sans">
+        <p class="text-gray-600">If you want to be notified when this page is ready, please enter your email.</p>
+        <form id="notifyForm" action="{% url 'submit_email' %}" method="POST" onsubmit="return validateEmail()">
+            {% csrf_token %}
+            <input type="email" name="email" id="email"
+                class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                placeholder="Enter your email" required />
+            <div class="mt-4">
+                <button type="submit"
+                    class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">
+                    Notify Me
+                </button>
+            </div>
+        </form>
+    </div>
+</main>
+
+<script>
+    function validateEmail() {
+        const email = document.getElementById('email').value;
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!re.test(email)) {
+            return false;
+        }
+        return true;
+    }
+</script>
+{% endblock %}

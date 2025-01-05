@@ -16,7 +16,7 @@ def vocabulary(request):
 
 
 def start(request):
-    return render(request, "pages/flashcards.html")
+    return render(request, "pages/underconstruction.html")
 
 
 def resources(request):
