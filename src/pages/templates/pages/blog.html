@@ -1,36 +1,28 @@
 {% extends "layouts/index.html" %}
 {% load static %}
 
-{% block title %}Blog - LearnZhongWen{% endblock %}
+{% block title %}{{ post.title }} - LearnZhongWen{% endblock %}
 
 {% block body %}
-<main class="max-w-screen-lg mx-auto p-6 bg-white">
+<main class="max-w-screen-lg mx-auto p-6 bg-white rounded-lg shadow-lg">
     <div>
-        <img src="{% static 'images/l2.webp' %}" class="mx-auto my-6" width="75%" />
+        <header class="mb-6">
+            <h1 class="text-4xl font-bold mb-4 text-center">{{ post.title }}</h1>
+            <p class="text-gray-600 text-sm text-center">
+                By {{ post.author.first_name }} on {{ post.created_at|date:"F d, Y" }}
+            </p>
+        </header>
+        <section class="prose mx-auto text-gray-800 leading-relaxed">
+            {{ html|safe }}
+        </section>
     </div>
 
-    {% if posts %}
-    <div class="grid grid-cols-1 gap-6">
-        {% for post in posts %}
-        <article class="border border-gray-300 rounded-lg overflow-hidden">
-            <div class="p-4">
-                <h2 class="text-xl font-semibold mb-2">
-                    <a href="{% url 'post_detail' post.id %}" class="text-blue-600 hover:underline">
-                        {{ post.title }}
-                    </a>
-                </h2>
-                <p class="text-gray-600 text-sm mb-4">
-                    {{ post.created_at|date:"F d, Y" }}
-                </p>
-                <p class="text-gray-800 text-base line-clamp-3">
-                    {{ post.content|truncatechars:250 }}
-                </p>
-            </div>
-        </article>
-        {% endfor %}
+    <hr class="my-8 border-gray-300">
+
+    <div class="flex justify-center">
+        <a href="{% url 'home' %}" class="text-blue-600 hover:underline">
+            &larr; Home
+        </a>
     </div>
-    {% else %}
-    <p class="text-gray-500 text-center">No blog posts available at the moment. Check back later!</p>
-    {% endif %}
 </main>
 {% endblock %}

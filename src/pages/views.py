@@ -10,7 +10,7 @@ from .models import Post
 
 def home(request):
     posts = Post.objects.filter(published=True)[:5]
-    template = loader.get_template("pages/blog.html")
+    template = loader.get_template("pages/home.html")
     context = {"posts": posts}
     return HttpResponse(template.render(context, request))
 
@@ -38,9 +38,7 @@ def submit_email(request):
     return render(request, "pages/home.html")
 
 
-def post_detail(request, pk):
+def blog(request, pk):
     post = get_object_or_404(Post, pk=pk, published=True)
     html = markdown.markdown(post.content)
-    return render(
-        request, "pages/post_detail.html", {"post": post, "html": html}
-    )
+    return render(request, "pages/blog.html", {"post": post, "html": html})
