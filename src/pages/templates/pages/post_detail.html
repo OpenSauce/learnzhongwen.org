@@ -1,0 +1,28 @@
+{% extends "layouts/index.html" %}
+{% load static %}
+
+{% block title %}{{ post.title }} - LearnZhongWen{% endblock %}
+
+{% block body %}
+<main class="max-w-screen-lg mx-auto p-6 bg-white rounded-lg shadow-lg">
+    <div>
+        <header class="mb-6">
+            <h1 class="text-4xl font-bold mb-4 text-center">{{ post.title }}</h1>
+            <p class="text-gray-600 text-sm text-center">
+                By {{ post.author.first_name }} on {{ post.created_at|date:"F d, Y" }}
+            </p>
+        </header>
+        <section class="prose prose-lg mx-auto text-gray-800 leading-relaxed">
+            {{ html|safe }}
+        </section>
+    </div>
+
+    <hr class="my-8 border-gray-300">
+
+    <div class="flex justify-center">
+        <a href="{% url 'home' %}" class="text-blue-600 hover:underline">
+            &larr; Back to Blog
+        </a>
+    </div>
+</main>
+{% endblock %}

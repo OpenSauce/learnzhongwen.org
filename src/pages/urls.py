@@ -17,4 +17,5 @@ urlpatterns = [
     path("vocabulary/", views.vocabulary, name="vocabulary"),
     path("resources/", views.resources, name="resources"),
     path("sitemap.xml", sitemap, {"sitemaps": sitemaps}, name="sitemap"),
+    path("post/<int:pk>/", views.post_detail, name="post_detail"),
 ]
