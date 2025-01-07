@@ -1,19 +1,35 @@
 {% extends "layouts/index.html" %}
 {% load static %}
 
-{% block title %}LearnZhongWen{% endblock %}
+{% block title %}Blog - LearnZhongWen{% endblock %}
 
 {% block body %}
-<main class="max-w-screen-lg my-5 mx-auto mb-auto text-center">
-  <div class="text-center">
-    <p class="text-gray-600">红烧肉 they call it, 红烧肉. <i><b>Yeehaw!</i></b></p>
-  </div>
-  <img src="{% static 'images/l2.webp' %}" class="mx-auto mt-6" width="75%" />
-  <a href="/start">
-    <button
-      class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow mt-6">
-      Begin
-    </button>
-  </a>
+<main class="max-w-screen-lg mx-auto p-6 bg-white">
+    <div>
+        <img src="{% static 'images/l2.webp' %}" class="mx-auto my-6" width="75%" />
+    </div>
+    {% if posts %}
+    <div class="grid grid-cols-1 gap-6">
+        {% for post in posts %}
+        <article class="border border-gray-300 rounded-lg overflow-hidden">
+            <div class="p-4">
+                <h2 class="text-xl font-semibold mb-2">
+                    <a href="{% url 'blog' post.id %}" class="text-blue-600 hover:underline">
+                        {{ post.title }}
+                    </a>
+                </h2>
+                <p class="text-gray-600 text-sm mb-4">
+                    {{ post.created_at|date:"F d, Y" }}
+                </p>
+                <p class="text-gray-800 text-base line-clamp-3">
+                    {{ post.content|truncatechars:250 }}
+                </p>
+            </div>
+        </article>
+        {% endfor %}
+    </div>
+    {% else %}
+    <p class="text-gray-500 text-center">No blog posts available at the moment. Check back later!</p>
+    {% endif %}
 </main>
 {% endblock %}
