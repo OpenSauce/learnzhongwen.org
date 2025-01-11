@@ -14,7 +14,6 @@ urlpatterns = [
     path("start/", views.start, name="start"),
     path("start/submit-email/", views.submit_email, name="submit_email"),
     path("about/", views.about, name="about"),
-    path("vocabulary/", views.vocabulary, name="vocabulary"),
     path("resources/", views.resources, name="resources"),
     path("sitemap.xml", sitemap, {"sitemaps": sitemaps}, name="sitemap"),
     path("blog/<int:pk>/", views.blog, name="blog"),
