@@ -1,0 +1,17 @@
+{% extends "layouts/index.html" %}
+
+{% block title %}Flashcards{% endblock %}
+
+{% block body %}
+<main class="max-w-screen-lg mx-auto p-6">
+    <h1 class="text-3xl font-bold mb-6">Flashcards</h1>
+    <ul>
+        {% for flashcard in flashcards %}
+        <li class="mb-4">
+            <strong>Question:</strong> {{ flashcard.question }} <br>
+            <strong>Answer:</strong> {{ flashcard.answer }}
+        </li>
+        {% endfor %}
+    </ul>
+</main>
+{% endblock %}

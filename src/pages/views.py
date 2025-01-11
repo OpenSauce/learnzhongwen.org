@@ -19,10 +19,6 @@ def about(request):
     return render(request, "pages/about.html")
 
 
-def vocabulary(request):
-    return render(request, "pages/vocabulary.html")
-
-
 def start(request):
     return render(request, "pages/underconstruction.html")
 
