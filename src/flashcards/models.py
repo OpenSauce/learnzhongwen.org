@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class FlashcardContent(models.Model):
     hsk_level = models.IntegerField()
     simplified = models.TextField()
@@ -17,7 +18,7 @@ class FlashcardContent(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        unique_together = ('hsk_level', 'simplified', 'pinyin')  
+        unique_together = ("hsk_level", "simplified", "pinyin")
 
     def __str__(self):
         return f"{self.simplified} ({self.pinyin}) - HSK {self.hsk_level}"
