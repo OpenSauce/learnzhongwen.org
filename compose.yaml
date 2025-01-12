@@ -86,6 +86,8 @@ services:
     ports:
       - "${DOCKER_WEB_PORT_FORWARD:-127.0.0.1:8000}:${PORT:-8000}"
     profiles: ["web"]
+    volumes:
+      - "./data/hsk:/app/data/hsk"
 
   worker:
     <<: *default-app

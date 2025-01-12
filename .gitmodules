@@ -1,0 +1,3 @@
+[submodule "data/hsk"]
+	path = data/hsk
+	url = https://github.com/drkameleon/complete-hsk-vocabulary.git
